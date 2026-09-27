@@ -21,7 +21,11 @@ from flask_cors import CORS
 
 #context
 def create_app():
-    app = Flask(__name__)
+    app = Flask(
+        __name__,
+        static_folder="assets",
+        template_folder="dist"
+    )
     CORS(app)
     app.config['MYSQL_HOST'] = 'localhost'
     app.config['MYSQL_USER'] = 'root'
